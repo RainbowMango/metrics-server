@@ -100,7 +100,7 @@ func (o *Options) Flags() (fs flag.NamedFlagSets) {
 // NewOptions constructs a new set of default options for metrics-server.
 func NewOptions() *Options {
 	return &Options{
-		GenericServerRunOptions: genericoptions.NewServerRunOptions(),
+		GenericServerRunOptions: genericoptions.NewServerRunOptionsForComponent("metrics server", utilversion.NewComponentGlobalsRegistry()),
 		SecureServing:           genericoptions.NewSecureServingOptions().WithLoopback(),
 		Authentication:          genericoptions.NewDelegatingAuthenticationOptions(),
 		Authorization:           genericoptions.NewDelegatingAuthorizationOptions(),
